@@ -1,0 +1,29 @@
+.maquina{
+    width: 400px;
+    height: 600px;
+    background: url('../img/maquina.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-x: -100px;
+    
+}
+.productos{
+    width: 52%;
+    height: 52%;
+
+    /* margin-top: 80px;
+    margin-left: 75px; */
+    position: relative;
+    top:80px;
+    left: 75px;
+    display: flex;
+    flex-wrap: wrap;
+    
+}
+.espiral{
+    width: 50px;
+    height: 50px;
+    background: url('../img/esp.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}

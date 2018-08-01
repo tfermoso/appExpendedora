@@ -1,0 +1,32 @@
+[
+    {
+        "nombre":"Coca cola",
+        "id":1,
+        "precio": 0.05,
+        "cantidad":13
+    },
+    {
+        "nombre":"Agua",
+        "id":2,
+        "precio": 0.65,
+        "cantidad":15
+    },
+    {
+        "nombre":"Nestea",
+        "id":3,
+        "precio": 1.25,
+        "cantidad":4
+    },
+    {
+        "nombre":"Cacahuetes",
+        "id":4,
+        "precio": 1,
+        "cantidad":10
+    },
+    {
+        "nombre":"Patatas",
+        "id":5,
+        "precio": 0.95,
+        "cantidad":5
+    }
+]
