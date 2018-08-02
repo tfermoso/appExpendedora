@@ -15,6 +15,7 @@
     
 }
 
+
 .monedas img{
     width: 60px;
     height: 60px;
@@ -30,12 +31,31 @@
     top:80px;
     left: 75px;
     display: flex;
-    flex-wrap: wrap;
+    flex-wrap: wrap;    
+}
+.importe{
+    width: 30px;
+    height: 30px;
+    position: relative;
+    left: 310px;
+    top: -195px;
+}
+.credito{
+    width: 30px;
+    font-size: 15px;
+    height: 30px;
+    position: relative;
+    left: 310px;
+    top: -70px;
     
 }
 .ranura{
     width: 50px;
     height: 50px;
+}
+.ranuraSel{
+    width: 55px;
+    height: 55px;
 }
 .espiral{ 
     background: url('../img/esp.png');
@@ -67,4 +87,10 @@
     background-repeat: no-repeat;
     background-size: cover;
 }
-
+.avisos{
+    margin-top: 20px;
+    border: 1px solid red;
+    border-radius: 5px;
+    padding: 10px;
+    color: red;
+}
