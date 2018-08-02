@@ -20,10 +20,39 @@
     flex-wrap: wrap;
     
 }
-.espiral{
+.ranura{
     width: 50px;
     height: 50px;
+
+}
+.espiral{ 
     background: url('../img/esp.png');
     background-repeat: no-repeat;
     background-size: cover;
 }
+.Agua{
+    background: url('../img/Agua.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Cacahuetes{
+    background: url('../img/Cacahuetes.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Cocacola{
+    background: url('../img/Cocacola.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Nestea{
+    background: url('../img/Nestea.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.Patatas{
+    background: url('../img/Patatas.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
