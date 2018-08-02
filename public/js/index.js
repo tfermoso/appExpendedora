@@ -7,7 +7,7 @@ $.ajax({
         console.log(response); 
         for (const producto in response.productos) {
             if (response.productos.hasOwnProperty(producto)) {
-                var div=`<div class='ranura ${producto}'></div>`;
+                var div=`<div id='${producto}' class='ranura ${producto}'></div>`;
                 $('.productos').append(div);
                 
             }
@@ -16,9 +16,17 @@ $.ajax({
             $('.productos').append("<div class='ranura espiral'></div>");
             
         }
+        eventosRanuras();
     }
 });
 
+
+function eventosRanuras(){
+    $('.ranura').click(ev=>{
+        console.log(ev);
+        alert("ranura pulsada");
+    })
+}
 
 
 

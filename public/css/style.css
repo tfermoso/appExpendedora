@@ -1,3 +1,10 @@
+
+.principal{
+    width: 80%;
+    margin: 10px auto;
+    display: flex;
+    justify-content: space-between;
+}
 .maquina{
     width: 400px;
     height: 600px;
@@ -7,6 +14,12 @@
     background-position-x: -100px;
     
 }
+
+.monedas img{
+    width: 60px;
+    height: 60px;
+}
+
 .productos{
     width: 52%;
     height: 52%;
@@ -23,7 +36,6 @@
 .ranura{
     width: 50px;
     height: 50px;
-
 }
 .espiral{ 
     background: url('../img/esp.png');
