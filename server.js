@@ -23,7 +23,6 @@ app.post('/precio',(req,res)=>{
 })
 
 app.post('/comprar',(req,res)=>{  
-    console.log(req.body);
     var result=maquina.comprarProducto(req.body.producto,JSON.parse(req.body.credito));
     var avisos=maquina.leerAvisos();
     var respuesta={

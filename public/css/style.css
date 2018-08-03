@@ -94,3 +94,10 @@
     padding: 10px;
     color: red;
 }
+
+#avisos{
+    max-height: 300px;
+    overflow:auto;
+}
+
+

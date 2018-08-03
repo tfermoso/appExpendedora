@@ -1,13 +1,13 @@
 var monedasInsertadas = [];
 var productoSeleccionado = "";
+var cajetinesLlenos = [];
 
 $.ajax({
     type: "get",
     url: "/",
     dataType: "json",
     success: function (response) {
-        console.log(response);
-
+        cajetinesLlenos = response["cajetines llenos"];
         for (const producto in response.productos) {
             if (response.productos.hasOwnProperty(producto)) {
                 var div = `<div id='${producto}' class='ranura ${producto}'></div>`;
@@ -23,7 +23,7 @@ $.ajax({
 
 
 function eventosRanuras() {
-    $('.ranura').click(ev => {
+    $('.ranura').click(ev => {       
         productoSeleccionado = "";
         if (ev.currentTarget.id == "") {
             alert("ranura vacia");
@@ -45,6 +45,8 @@ function eventosRanuras() {
                     success: function (response) {
                         console.log(response);
                         $('.importe').html(response);
+                        // Compruebo si hay saldo, si lo hay compro.
+
                     }
                 });
             }
@@ -55,41 +57,58 @@ function eventosRanuras() {
 
 $('.monedas img').click((ev) => {
     var precioProducto = parseFloat($('.importe').html());
-    var credito = parseFloat($('.credito').html());
-    credito += parseFloat(ev.currentTarget.id);
-    monedasInsertadas.push(parseFloat(ev.currentTarget.id));
-    console.log(monedasInsertadas)
-    $('.credito').html(credito.toFixed(2));
-    if (credito >= precioProducto && productoSeleccionado != "") {
-        comprarProducto(productoSeleccionado,monedasInsertadas);
+    console.log(cajetinesLlenos.indexOf(ev.currentTarget.id))
+    if (cajetinesLlenos.indexOf(ev.currentTarget.id) > -1) {
+        $('#avisos').append(`La máquina no acepta más monedas de ${ev.currentTarget.id}€</br>`);
+        $('#avisos').scrollTop('9999');
+    } else {
+        var credito = parseFloat($('.credito').html());
+        credito += parseFloat(ev.currentTarget.id);
+        monedasInsertadas.push(parseFloat(ev.currentTarget.id));
+        $('.credito').html(credito.toFixed(2));
+        if (credito >= precioProducto && productoSeleccionado != "") {
+            comprarProducto(productoSeleccionado, monedasInsertadas);
+            monedasInsertadas=[];
+        }
     }
-
 })
 
-function comprarProducto(producto,credito) {    
-        $.ajax({
-            type: "post",
-            url: "/comprar",
-            data: {
-                "producto": producto,
-                "credito": JSON.stringify(credito)
-            },
-            dataType: "json",
-            success: function (response) {
-                console.log(response);
-                var cambio = 0;
-                response.result.cambio.forEach(ele => {
-                    cambio += parseFloat(ele);
-                });
-                $('.credito').html(cambio.toFixed(2));
-                $('.importe').html("0.00");
+function comprarProducto(producto, credito) {
 
-                response.result.mensaje.forEach(msg => {
-                    $('#avisos').append(msg+"</br>");
-                });
-            }
-        });
-  
+    $.ajax({
+        type: "post",
+        url: "/comprar",
+        data: {
+            "producto": producto,
+            "credito": JSON.stringify(credito)
+        },
+        dataType: "json",
+        success: function (response) {
+            var cambio = 0;
+            var monedasDevueltas = "";
+            response.result.cambio.forEach(ele => {
+                monedasDevueltas += `${ele}€ `
+                cambio += parseFloat(ele);
+            });
+
+            $('.credito').html("0.00");
+            $('.importe').html("0.00");
+            $('#avisos').append(`Tu cambio es ${cambio.toFixed(2)}€ </br>Monedas: ${monedasDevueltas}</br>`);
+            response.result.mensaje.forEach(msg => {
+                $('#avisos').append(msg + "</br>");
+            });
+            response.aviso["cajetines vacios"].forEach(c => {
+                $('#avisos').append(`No hay monedas de ${c}€</br>`);
+            })
+            response.aviso["cajetines llenos"].forEach(c => {
+                $('#avisos').append(`La máquina no acepta más monedas de ${c}€</br>`);
+            })
+            $('#avisos').scrollTop('9999');
+            cajetinesLlenos = response.aviso["cajetines llenos"];
+
+        }
+    });
+
 }
 
 
