@@ -22,24 +22,75 @@
                 <div class="credito">
                     0.00
                 </div>
+                <div class="btnAbrir"></div>
             </div>
         </div>
-        <div class="cartera">
-            <h2>Monedero</h2>
-            <div class="monedas">
-                <img id="2" src="img/2euros.jpg" alt="2 euros">
-                <img id="1" src="img/1euro.jpg" alt="1 euro">
-                <img id="0.5" src="img/50cent.jpg" alt="50 centimos">
-                <img id="0.2" src="img/20cent.jpg" alt="20 centimos">
-                <img id="0.1" src="img/10cent.jpg" alt="10 centimos">
-                <img id="0.05" src="img/5cent.jpg" alt="5 centimos">
+        <div class="dercha">
+            <div class="cartera mostrar">
+                <h2>Monedero</h2>
+                <div class="monedas">
+                    <img id="2" src="img/2euros.jpg" alt="2 euros">
+                    <img id="1" src="img/1euro.jpg" alt="1 euro">
+                    <img id="0.5" src="img/50cent.jpg" alt="50 centimos">
+                    <img id="0.2" src="img/20cent.jpg" alt="20 centimos">
+                    <img id="0.1" src="img/10cent.jpg" alt="10 centimos">
+                    <img id="0.05" src="img/5cent.jpg" alt="5 centimos">
+                </div>
+                <div class="avisos">
+                    <h2>Avisos máquina</h2>
+                    <div id="avisos"></div>
+                </div>
             </div>
-            <div class="avisos">
-                <h2>Avisos máquina</h2>
-                <div id="avisos"></div>
-            </div>
-        </div>
+            <div class="gestion ocultar">
+                <h2>Gestión máquina</h2>
+                <div>
+                    <h5>Vaciar cajetines</h5>
+                    <button id="vaciar">Vaciar cajetines</button>
+                    <p id="info"></p>
+                    <hr>
+                </div>
+                <div>
+                    <h5>Cargar cajetines</h5>
 
+                    <div class="monedas_cajetines">
+                        <div>
+                            <img src="img/2euros.jpg" alt="2 euros">
+                            <input type="number" id="2cant" value="0">
+                        </div>
+                        <div>
+                            <img src="img/1euro.jpg" alt="1 euro">
+                            <input type="number" id="1cant" value="0">
+                        </div>
+                        <div>
+                            <img src="img/50cent.jpg" alt="50 centimos">
+                            <input type="number" id="05cant" value="0">
+                        </div>
+                        <div>
+                            <img src="img/20cent.jpg" alt="20 centimos">
+                            <input type="number" id="02cant" value="0">
+                        </div>
+                        <div>
+                            <img src="img/10cent.jpg" alt="10 centimos">
+                            <input type="number" id="01cant" value="0">
+                        </div>
+                        <div>
+                            <img src="img/5cent.jpg" alt="5 centimos">
+                            <input type="number" id="005cant" value="0">
+                        </div>
+                        <button>Cargar Monedas</button>
+                    </div>
+                    <hr>
+                </div>
+                <div>
+                    <h5>Cargar producto</h5>
+                    
+                    <div id="productoSel" class="ranura">
+                    </div>
+                    <input type="text" id="unidades" value="0">
+
+                </div>
+            </div>
+        </div>
     </div>
 
 

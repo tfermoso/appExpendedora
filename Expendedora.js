@@ -72,32 +72,13 @@ class Expendedora {
 
     cargarMonedas(euros) {
         this._cajetines = {};
-
-
         Expendedora.MONEDAS().forEach(moneda => {
             this._cajetines[moneda] = {
                 "capacidad": 50,
                 "cantidad": 0
             }
         });
-        euros.forEach(euro => {
-            if (this._cajetines[euro.valor] != undefined) {
-                this._cajetines[euro.valor].cantidad += euro.cantidad;
-                if (this._cajetines[euro.valor].cantidad > this._cajetines[euro.valor].capacidad) {
-                    this._cajetines[euro.valor].cantidad = this._cajetines[euro.valor].capacidad;
-                    console.log("El cajetín " + euro.valor + " esta lleno");
-                }
-
-
-                // if((this._cajetines[euro.valor].cantidad+euro.cantidad) > this._cajetines[euro.valor].capacidad){
-                //     this._cajetines[euro.valor].cantidad=this._cajetines[euro.valor].capacidad;
-                // }else{
-                //     this._cajetines[euro.valor].cantidad+=euro.cantidad;
-                // }           
-            } else {
-                console.log("No existe el cajetín para la moneda " + euro.valor);
-            }
-        });
+        this.meterMonedas(euros);
     }
 
     seleccionarProducto(nombreProducto) {
@@ -113,6 +94,20 @@ class Expendedora {
         }
         return null;
         // console.log("Producto no encontrado");
+    }
+
+    meterMonedas(monedas){
+        monedas.forEach(euro => {
+            if (this._cajetines[euro.valor] != undefined) {
+                this._cajetines[euro.valor].cantidad += euro.cantidad;
+                if (this._cajetines[euro.valor].cantidad > this._cajetines[euro.valor].capacidad) {
+                    this._cajetines[euro.valor].cantidad = this._cajetines[euro.valor].capacidad;
+                    console.log("El cajetín " + euro.valor + " esta lleno");
+                }          
+            } else {
+                console.log("No existe el cajetín para la moneda " + euro.valor);
+            }
+        });
     }
 
     meterMoneda(moneda) {
@@ -242,6 +237,19 @@ class Expendedora {
         });
 
         return avisos;
+    }
+
+    vaciarCajetines(){
+        let importe=0;
+        for (const moneda in this._cajetines) {
+            if (this._cajetines.hasOwnProperty(moneda)) {
+                // const element = this._cajetines[moneda];
+                const element = this._cajetines[moneda];
+                importe += (element.cantidad * moneda);
+                element.cantidad=0;
+            }
+        }
+        return importe;
     }
 }
 

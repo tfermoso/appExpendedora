@@ -1,10 +1,16 @@
-
+.ocultar{
+    display: none;
+}
+.mostrar{
+    display: block;
+}
 .principal{
     width: 80%;
     margin: 10px auto;
     display: flex;
     justify-content: space-between;
 }
+
 .maquina{
     width: 400px;
     height: 600px;
@@ -15,10 +21,28 @@
     
 }
 
-
 .monedas img{
     width: 60px;
     height: 60px;
+}
+.monedas_cajetines{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+.monedas_cajetines div{
+    width: 45%;
+    display: flex;
+    align-items: center;
+}
+.monedas_cajetines img{
+    width: 30px;
+    height: 30px;
+    margin-right: 10px
+}
+.monedas_cajetines button{
+    margin: 20px;
 }
 
 .productos{
@@ -100,4 +124,22 @@
     overflow:auto;
 }
 
+.btnAbrir{
+    width: 15px;
+    height: 25px;
+    position: relative;
+    left: 339px;
+    top: -61px;
+    cursor: pointer
+}
 
+*{
+    user-select: none;
+}
+
+.dercha{
+    width: 50%;
+}
+#productoSel{
+    
+}
